@@ -10,13 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180619153144) do
+ActiveRecord::Schema.define(version: 20180619190901) do
+
+  create_table "bills", force: :cascade do |t|
+    t.string "description"
+    t.integer "representative_id"
+    t.integer "pass_fail_bill_id"
+  end
+
+  create_table "pass_fail_bills", force: :cascade do |t|
+    t.integer "politician_id"
+    t.integer "bill_id"
+  end
 
   create_table "politicians", force: :cascade do |t|
     t.string "name"
     t.string "party"
     t.string "office"
     t.string "gender"
+    t.string "cid"
+  end
+
+  create_table "representatives", force: :cascade do |t|
+    t.string "name"
+    t.string "party"
+    t.string "office"
+    t.integer "money"
     t.string "cid"
   end
 
