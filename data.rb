@@ -2,18 +2,7 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-# def search_for_term
-#     response = RestClient.get "https://www.opensecrets.org/api/?method=getLegislators&id=NY&apikey=1c75e9b1efe4f5eb843c6397427019e9&output=json"
-#     json = JSON.parse(response.body)
-#     #binding.pry
-#     json
-# end
-
-# json["response"]["legislator"].map do |congress|
-#   congress["@attributes"]["firstlast"]
-# end
-
-class Candidates
+class Candidate
 
   attr_accessor :candidates, :cands
 
@@ -54,3 +43,14 @@ class Candidates
     @candidates.flatten
   end
 end
+
+# def search_for_term
+#     response = RestClient.get "https://www.opensecrets.org/api/?method=getLegislators&id=NY&apikey=1c75e9b1efe4f5eb843c6397427019e9&output=json"
+#     json = JSON.parse(response.body)
+#     #binding.pry
+#     json
+# end
+
+# json["response"]["legislator"].map do |congress|
+#   congress["@attributes"]["firstlast"]
+# end
