@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-require_relative './test_case.rb'
+require_relative './data.rb'
 
 Pry.start
 
@@ -14,3 +14,5 @@ Pry.start
 # ==> creates hashes
 #richard.candidates
 # ==> returns flattened array of candidates_hashes
+
+#API Key 1c75e9b1efe4f5eb843c6397427019e9
