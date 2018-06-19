@@ -2,7 +2,7 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-require_relative './test_case.rb'
+require_relative './data.rb'
 
 Pry.start
 
