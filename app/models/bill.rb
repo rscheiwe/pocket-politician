@@ -12,6 +12,10 @@ class Bill < ActiveRecord::Base
 
   end
 
+  def description
+    @description
+  end
+
   # def pass_fail_bills
   #   has_many macro
   #   PassFailBill.all.select do |pfb|
@@ -21,7 +25,7 @@ class Bill < ActiveRecord::Base
 
   # has_many_through
   # def politicians
-  #   self.pass_fail_bills.map {|bill| bill.politician }  
+  #   self.pass_fail_bills.map {|bill| bill.politician }
   # end
 
 end
