@@ -4,6 +4,8 @@ require 'pry'
 
 require_relative './data.rb'
 
+#hey I just made this change weird 
+
 Pry.start
 
 #richard = Candidates.new
