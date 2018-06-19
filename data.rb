@@ -4,11 +4,12 @@ require 'pry'
 
 class GetData
 
-  attr_accessor :politicians, :pols
+  attr_accessor :pols
+
+  @@politicians = []
 
   def initialize
 
-    @politicians =[]
     @pols = []
   end
 
@@ -23,7 +24,7 @@ class GetData
   def politicians_hashes #(arr)
     #json = find_politicians_data(arr) ==> didn't work
 
-    @politicians << @pols.map do |pol|
+    @@politicians << @pols.map do |pol|
       #binding.pry
       pol["response"]["legislator"].map do |congress|
     #@politicians << json["response"]["legislator"].map do |congress|
@@ -39,8 +40,8 @@ class GetData
   end
 
 
-  def politicians
-    @politicians.flatten
+  def self.politicians
+    @@politicians.flatten
   end
 end
 
