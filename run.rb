@@ -12,3 +12,5 @@ Pry.start
 #     following method
 #richard.candidates_hashes
 # ==> creates hashes
+#richard.candidates
+# ==> returns flattened array of candidates_hashes

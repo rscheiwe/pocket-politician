@@ -41,14 +41,16 @@ class Candidates
         {
           name: congress["@attributes"]["firstlast"],
           party: congress["@attributes"]["party"],
-          office: congress["@attributes"]["office"]
+          office: congress["@attributes"]["office"],
+          gender: congress["@attributes"]["gender"],
+          cid: congress["@attributes"]["cid"]
         }
-        end
+      end
       end
     end
   end
 
   def candidates
-    @candidates
+    @candidates.flatten
   end
 end
