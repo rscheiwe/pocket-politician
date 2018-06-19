@@ -4,7 +4,11 @@ require 'pry'
 
 require_relative './data.rb'
 
-#hey I just made this change weird 
+#hey I just made this change weird
+
+ny = GetData.new
+ny.find_politicians_data(["NY"])
+ny.politicians_hashes
 
 Pry.start
 
