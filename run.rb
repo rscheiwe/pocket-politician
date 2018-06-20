@@ -21,10 +21,11 @@ state_arr = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT",
 ny.find_politicians_data(state_arr)
 ny.politicians_hashes
 
-#hey I just made this change weird
-
 Pry.start
 
+#ruby.start
+#(in pry) load './config/environment.rb'
+#Politician.seed_politicians (moves to database)
 
 
 #richard = Candidates.new
