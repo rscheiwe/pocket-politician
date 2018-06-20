@@ -2,8 +2,6 @@
 
 Using OpenSecrets getLegislators API to retrieve politician data.
 
-                                                              
-                                                              
                                     ,-.               ___     
 ,-.----.                        ,--/ /|             ,--.'|_   
 \    /  \    ,---.            ,--. :/ |             |  | :,'  
