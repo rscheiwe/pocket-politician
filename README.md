@@ -1,7 +1,7 @@
 # pocket-politician
 
 Using OpenSecrets getLegislators API to retrieve politician data.
-
+··
 ····seeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeo···
 
 ····SQQQQQQQQQQQQQQQQQQQQPb·····PPPGQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb···
@@ -67,5 +67,3 @@ Using OpenSecrets getLegislators API to retrieve politician data.
 ····SQQQQQQQQQQQQQQQQb·Sb···S···)Qb·s·)·)Q·(··)bSQQQQQQQQQQQQS········
 
 ····SQQQQQQQQQQQQQQQQb·Sb·b·p·ppsQb·s·)·)b·()p··SQQQQQQQQQQQb·········
-
-····QQQQQQQQQQQQQQQQQeeQeeQeQeeeQQeeeeQeeeeQdQeeQQQQQQQQQQQQee········
