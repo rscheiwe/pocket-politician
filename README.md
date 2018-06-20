@@ -2,8 +2,6 @@
 
 Using OpenSecrets getLegislators API to retrieve politician data.
 
-https://www.opensecrets.org/api/?method=getLegislators&output=doc
-
                        __              __      
                       /\ \            /\ \__   
  _____     ___     ___\ \ \/'\      __\ \ ,_\  
@@ -12,4 +10,4 @@ https://www.opensecrets.org/api/?method=getLegislators&output=doc
  \ \ ,__/\ \____/\ \____\\ \_\ \_\ \____\\ \__\
   \ \ \/  \/___/  \/____/ \/_/\/_/\/____/ \/__/
    \ \_\                                       
-    \/_/ 
+    \/_/                                       
