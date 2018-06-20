@@ -4,43 +4,10 @@ Using OpenSecrets getLegislators API to retrieve politician data.
 
 https://www.opensecrets.org/api/?method=getLegislators&output=doc
 
-·····sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssse····
-····)QQQQQQQQQQQQQQQQQQQQQQQQddddPbPSSQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQQQbb·················PPSQQQQQQGQQQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQGPbC······p··)ssqqp··············bsSQQQQQQQQQQQQQQQQQQb····
-····)QQQQQQQQQQQQQQP·····psQSb················ep···········QQQQQQQQQQQQQQQQb····
-····)QQQQQQQQQQQQQQo···)QQb······················s·········)QQQQQQQQQQQQQQQb···
-····)QQQQQQQQQQQQQSC··sQb··························e·········)QQQQQQQQQQQQQb···
-····SQQQQQQQQQQQQQQ··QQC····p·········b·)QeQQQq······o·······)QQQQQQQQQQQQQb···
-····sQQQQQQQQQQQQQC)QQC··sdQQQQeee····GQQQPC·····o···)······)QQQQQQQQQQQQQQb···
-····SQQQQQQQQQQQQb·QQQb)dGb····SQQb····SC·s·····e·e···b··s··)QQQQQQQQQQQQQQb···
-····SQQQQQQQQQQQb···QQsQQS·)sssSdCs········bbbbb······)··Q)··QQQQQQQQQQQQQQ····
-····SQQQQQQQQQQQb··sQQQQQSb······p····················)o·sQQsQQQQQQQQQQQQQQ····
-····QQQQQQQQQQQQb·sQQQQb)p·······QeeeQQ················b·sQQQQQQQQQQQQQQQQQ····
-····QQQQQQQQQQQQQQQQQS··········)QQQQSQQe··············)·)QQQQQQQQQQQQQQQQQ····
-····QQQQQQQQQQQQQQQQQQessQ·····)dSPb·······u············p·)QQQQQQQQQQQQQQQQ····
-····QQQQQQQQQQQQQQQQQQQQQQQ···)·····pp··················Q··QQQQQQQQQQQQQQQQ····
-····QQQQQQQQQQQQQQQQQQQQQQQ··)··sdC········e············)·Q····QQQQQQQQQQQQ·····.
-····SQQQQQQQQQQQQQQQQQQQQQQ··C)S)QQQQPPPSep·············)C····(QQQQQQQQQQQQ·····.
-····SQQQQQQQQQQQQQQQQQQQQQb·C··QQGb············e········S·····SQQQQQQQQQQQQ·····.
-.···QQQQQQQQQQQQQQQS·GQQQQQQp)C························QQssssQQQQQQQQQQQQQQb····.
-····QQQQQQQQQQQQQQQQosQQQQQQQessssssQQQQQQeeQQQQQQsssQQQQQQQQQQQQQQQQQQQQQQb····.
-····QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb····.
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ·SQSQQQQQQQQQQQQQQQQb····.
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ·sQQSQQQQQQQQQQQQQQQb····.
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb·SQQQQQQQQQQQQQQQQQQb····.
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQC)QQQQQQQQQQQQQQQQQQQb····.
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQSQQQQQQQQQQQQQQQQQQQQ····.
-····)QQQQQQQQQQQQQQQQQQQQdGQQQQQQQQQQQQQQQQQQQQQQQQSO··)QQQQQQQQQQQQQQQQQQQQ····.
-····)QQQQQQQQQQQQQQQQQQQS·····QQQQQQQQQQQQQQQQSPC·······QQQQQQQQQQQQQQQQQQQQ····.
-····)QQ0QQQQQQQQQQQQQQQS············PQQQQQQQQ···········QQQQQQQQQQQQQQQQQQQQ····0
-·····QQQQQQQQQQQQQQQQQQb··········)QQQQQ·)QQQQe·········QQQQQQQQQQQQQQQQQQQQ····0
-·····QQQQQQQQQQQQQQQQQQb·········S··PGQQQ)QQQGP)o······)QQQQQQQQQQQQQQQQQQQS····0
-·····QQQQQQQQQQQQQQQQQQb·······)b····seb)QP······p·····)QQQQQQQQQQQQQQQQQQS·····0
-·····QQQQQQQQQQQQQQQQQQb······d····)QQS·SQ········e····)QQQQQQQQQQQQQQQQQS······0
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb·······0
-····)QQQQQQQQQQQQQQQQQQep·)s·)SSQSSSSQQb·)o·(·)e·)···Q·QQQQQQQQQQQQQQQQC········0
-····)QQQQQQQQQQQQQQQQQQQb·)b·)p·b·)p·sQb·)b·p·)b·)·b·)·QQQQQQQQQQQQQQS··········0
-····)QQQQQQQQQQQQQQQQQQQb·sb·)b·p··eeQQb·Pb·b·)O·)·Q···QQQQQQQQQQQQQS···········0
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQep·······0
-                                                                                             
+   _ ___      ____      ____     FJ __      ____    FJ_      
+  J '__ J    F __ J    F ___J.  J |/ /L    F __ J  J  _|     
+  | |--| |  | |--| |  | |---LJ  |    \    | _____J | |-'     
+  F L__J J  F L__J J  F L___--. F L:\ J   F L___--.F |__-.   
+ J  _____/LJ\______/FJ\______/FJ__L \\_J.J\______/F\_____/   
+ |_J_____F  J______F  J______F |__L  \L_| J______F J_____F   
+ L_J                                                      
