@@ -4,55 +4,43 @@ Using OpenSecrets getLegislators API to retrieve politician data.
 
 https://www.opensecrets.org/api/?method=getLegislators&output=doc
 
- ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,     
-
-     j@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#     
-     j@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#"   `     `""%5###@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#     
-     ]@@@@@@@@@@@@@@@@@@@@@@@@@#"                       '"7%W##@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@#     
-     @@@@@@@@@@@@@@@@@@@@@##"5"`      ,s  ;sssssss,,            `^`7es#@@@@@@@@@@@@@@@@@@@@@@@O     
-     @@@@@@@@@@@@@@@@@@@#"      ,s###"               '""*W,              @@@@@@@@@@@@@@@@@@@@@O     
-     @@@@@@@@@@@@@@@@@@Q     ,@@@#".                       'W,            @@@@@@@@@@@@@@@@@@@@C     
-     @@@@@@@@@@@@@@@@@@@@#  ;@@#"                            '%o          "##@@@@@@@@@@@@@@@@@b     
-     @@@@@@@@@@@@@@@@@#Q.  @@#"                   :p@ ,M        %m           @@@@@@@@@@@@@@@@@b     
-     @@@@@@@@@@@@@@@@@@# ,@@#      @           |p ;@@@@@@ee,     'Q         ]@@@@@@@@@@@@@@@@#b     
-     @@@@@@@@@@@@@@@@@#^;@@#~  ,;@@@@@@ms,m    ]#@@@##5^   '5p    |S       @@@@@@@@@@@@@@@@@@#     
-     @@@@@@@@@@@@@@@@##|@@@# ,@#@###%##@@@#~    @@#".;#"` "W 'W    @   ]L  @@@@@@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@##` @####j#`;U '""%s|@@O,    '@#4`,@#@@m,7Q `   5b  @Os @@@@@@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@@b   ^@#@@@@#b;#@@###"`]`          ~ss,,   '"   |#  @Q#*d@@@@@@@@@@@@@@@@@#      
-     ###############b  ,@#####@##".-     ]`      ,     '""""`       @  @##Q@##################      
-     ###############b  ########, ,,-     @Qsss##p U                 !Q @######################      
-     ###############ms######   `        ]########m,"                 @ @######################      
-     ######################,            @#####""W##  W               ] ]######################      
-     ###########################L      #`""`          \              |b'`@####################      
-     ############################     #     ,;s,,       ~             @  %####################      
-     ############################Q   #  ;##M"``  ``"%w,               @ @o  %"@###############      
-     ############################O  @`,@Os###@@#@##C   ""             @Q#W    @###############      
-     ##@@@@@@@@@@@@@@@@@@@@@@@###b ;  M,@####"``` `""%Wem,            @b     j##@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@b,C  @###W               '5         ]#b     @@@@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@@@@@@#^%#@@@@@@#,,#`                       ,     @@#@mmmm@@@@@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@@@@@@@ ,@@@@@@@@@@,,,,,,;@##@@@#@@ms#@@@@#@Q,,s#@@@@@@@@@@@@@@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@#      
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@# @@#U@@@@@@@@@@@@@@@@@@@@b     
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@O @@#s#@@@@@@@@@@@@@@@@@@@b     
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#b @@@@@@@@@@@@@@@@@@@@@@@@O     
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Q-@@@@@@@@@@@@@@@@@@@@@@@@@Q     
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#";@@@@@@@@@@@@@@@@@@@@@@@@@Q     
-     9@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@Q     
-     j@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##W"  @@@@@@@@@@@@@@@@@@@@@@@@@#     
-     j@@@@@@@@@@@@@@@@@@@@@@@@#`   `7#@@@@@@@@@@@@@@@@@@@@##M"`      ]@@@@@@@@@@@@@@@@@@@@@@@@#     
-     j@@@@@@@@@@@@@@@@@@@@@@@#`       "%######@@@@@@@@#5"            ]@@@@@@@@@@@@@@@@@@@@@@@@#     
-     j@@@@@@@@@@@@@@@@@@@@@@@b              ]@@@@####@@@m            ]@@@@@@@@@@@@@@@@@@@@@@@@#     
-      @@@@@@@@@@@@@@@@@@@@@##b            ,##@@###p|#@#@#@@          ]#@@@@@@@@@@@@@@@@@@@@@#@#     
-      #######################b           #   "#####|######"7p        ]#@#######################     
-      #######################b         ]"     ;#j#,@##"     "Q       @########################`     
-      #######################L        #`    ,@### @#Q        'W      @#######################       
-     j#######################Q      ;Q     @####`|###         '@    ,@######################        
-     j####################################################################################"         
-     j#######################mm .m# |############b :m  @  sm |#  '@b]####################`          
-     ]########################O |## .s  @  so @##L ]#  @ |@# |U]p ?O@###################            
-     ]########################O ]#O |#  @  ,,,@##b @#  # |@Q ]O]#  ^@##################             
-     @@@@@@@@@@@@@@@@@@@@@@###Q,]#Q,;#,,@,,,,,@@#Q,,,,@#,,,,,@Q]#Q,,@@@@@@@@@@@@@@@@#Q              
-     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@#@@@@@@@@@@@@@@@#@@@@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@Q          
-
+·····sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssse····
+····)QQQQQQQQQQQQQQQQQQQQQQQQddddPbPSSQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ····
+····)QQQQQQQQQQQQQQQQQQQQQbb·················PPSQQQQQQGQQQQQQQQQQQQQQQQQQQQQ····
+····)QQQQQQQQQQQQQQQQGPbC······p··)ssqqp··············bsSQQQQQQQQQQQQQQQQQQb····
+····)QQQQQQQQQQQQQQP·····psQSb················ep···········QQQQQQQQQQQQQQQQb····
+····)QQQQQQQQQQQQQQo···)QQb······················s·········)QQQQQQQQQQQQQQQb···
+····)QQQQQQQQQQQQQSC··sQb··························e·········)QQQQQQQQQQQQQb···
+····SQQQQQQQQQQQQQQ··QQC····p·········b·)QeQQQq······o·······)QQQQQQQQQQQQQb···
+····sQQQQQQQQQQQQQC)QQC··sdQQQQeee····GQQQPC·····o···)······)QQQQQQQQQQQQQQb···
+····SQQQQQQQQQQQQb·QQQb)dGb····SQQb····SC·s·····e·e···b··s··)QQQQQQQQQQQQQQb···
+····SQQQQQQQQQQQb···QQsQQS·)sssSdCs········bbbbb······)··Q)··QQQQQQQQQQQQQQ····
+····SQQQQQQQQQQQb··sQQQQQSb······p····················)o·sQQsQQQQQQQQQQQQQQ····
+····QQQQQQQQQQQQb·sQQQQb)p·······QeeeQQ················b·sQQQQQQQQQQQQQQQQQ····
+····QQQQQQQQQQQQQQQQQS··········)QQQQSQQe··············)·)QQQQQQQQQQQQQQQQQ····
+····QQQQQQQQQQQQQQQQQQessQ·····)dSPb·······u············p·)QQQQQQQQQQQQQQQQ····
+····QQQQQQQQQQQQQQQQQQQQQQQ···)·····pp··················Q··QQQQQQQQQQQQQQQQ····
+····QQQQQQQQQQQQQQQQQQQQQQQ··)··sdC········e············)·Q····QQQQQQQQQQQQ·····.
+····SQQQQQQQQQQQQQQQQQQQQQQ··C)S)QQQQPPPSep·············)C····(QQQQQQQQQQQQ·····.
+····SQQQQQQQQQQQQQQQQQQQQQb·C··QQGb············e········S·····SQQQQQQQQQQQQ·····.
+.···QQQQQQQQQQQQQQQS·GQQQQQQp)C························QQssssQQQQQQQQQQQQQQb····.
+····QQQQQQQQQQQQQQQQosQQQQQQQessssssQQQQQQeeQQQQQQsssQQQQQQQQQQQQQQQQQQQQQQb····.
+····QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb····.
+····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ·SQSQQQQQQQQQQQQQQQQb····.
+····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ·sQQSQQQQQQQQQQQQQQQb····.
+····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb·SQQQQQQQQQQQQQQQQQQb····.
+····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQC)QQQQQQQQQQQQQQQQQQQb····.
+····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQSQQQQQQQQQQQQQQQQQQQQ····.
+····)QQQQQQQQQQQQQQQQQQQQdGQQQQQQQQQQQQQQQQQQQQQQQQSO··)QQQQQQQQQQQQQQQQQQQQ····.
+····)QQQQQQQQQQQQQQQQQQQS·····QQQQQQQQQQQQQQQQSPC·······QQQQQQQQQQQQQQQQQQQQ····.
+····)QQ0QQQQQQQQQQQQQQQS············PQQQQQQQQ···········QQQQQQQQQQQQQQQQQQQQ····0
+·····QQQQQQQQQQQQQQQQQQb··········)QQQQQ·)QQQQe·········QQQQQQQQQQQQQQQQQQQQ····0
+·····QQQQQQQQQQQQQQQQQQb·········S··PGQQQ)QQQGP)o······)QQQQQQQQQQQQQQQQQQQS····0
+·····QQQQQQQQQQQQQQQQQQb·······)b····seb)QP······p·····)QQQQQQQQQQQQQQQQQQS·····0
+·····QQQQQQQQQQQQQQQQQQb······d····)QQS·SQ········e····)QQQQQQQQQQQQQQQQQS······0
+····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb·······0
+····)QQQQQQQQQQQQQQQQQQep·)s·)SSQSSSSQQb·)o·(·)e·)···Q·QQQQQQQQQQQQQQQQC········0
+····)QQQQQQQQQQQQQQQQQQQb·)b·)p·b·)p·sQb·)b·p·)b·)·b·)·QQQQQQQQQQQQQQS··········0
+····)QQQQQQQQQQQQQQQQQQQb·sb·)b·p··eeQQb·Pb·b·)O·)·Q···QQQQQQQQQQQQQS···········0
+····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQep·······0
                                                                                              
