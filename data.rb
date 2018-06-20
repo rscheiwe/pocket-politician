@@ -31,7 +31,7 @@ class GetData
         {
           name: congress["@attributes"]["firstlast"],
           party: congress["@attributes"]["party"],
-          office: congress["@attributes"]["office"],
+          office: congress["@attributes"]["office"][0..1],
           gender: congress["@attributes"]["gender"],
           cid: congress["@attributes"]["cid"]
         }

@@ -8,10 +8,7 @@ require_relative './app/models/politician.rb'
 
 #another comment
 
-<<<<<<< HEAD
-=======
-#another comment
->>>>>>> 49e8ad8bf9e5a627f2bf0bedfcef6a56a6cbbdb5
+
 
 # require_relative './app/models/politician.rb'
 # require_relative './data.rb'
