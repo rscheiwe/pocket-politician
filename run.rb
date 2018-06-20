@@ -66,10 +66,15 @@ require_relative './app/models/politician.rb'
 
 # 3. Name / State / Party input
   puts "We'll have to gather some information on you first. Please enter your name: \n"
+
   rep_name = gets.chomp
+  puts
   puts "Please enter your state: \n"
+
   rep_state = gets.chomp
+  puts
   puts "Please enter your Part affiliation: \n ('d' for Democrat or 'r' for Republican.)\n"
+
   rep_party = gets.chomp
 
   new_rep = Representative.create(
@@ -79,6 +84,8 @@ require_relative './app/models/politician.rb'
     money: 50,
     cid: Representative.rand_cid)
 
+    puts
+
 
 
 
@@ -87,10 +94,16 @@ puts "Hello representative #{rep_name}. These are your currently have 'x money'.
 Passing bills will increase your money, failure will lose you money. \n
 Get x amount of money to win. If you drop below y, you'll lose!\n"
 
+puts
 # 5. puts Representative Card, w/ money & randomized CID
       #ASCII printout
-      puts "#{new_rep.cid} #{new_rep.office} \nRepresentative #{new_rep.name}, assets: $#{new_rep.money}, party: #{new_rep.party}"
+def rep_card(new_rep)
+   "===================== \n
+   Representative #{new_rep.name}\n
+  #{new_rep.cid} #{new_rep.office} \nassets: $#{new_rep.money}, party: #{new_rep.party}"
+end
 
+puts rep_card(new_rep)
 # 6. Ask if they'd like an instructions reminder
 # 7. Or hit enter to begin
     #puts instructions list
@@ -108,20 +121,86 @@ Get x amount of money to win. If you drop below y, you'll lose!\n"
     elsif support_reject.downcase == 'r'
     end
 
-
+loop do
 # 9. Politicians are printed for user to choose
-  puts "#{Politician.by_state(new_rep.office)}"
-  #puts an array with indexes of sample of 5 politicians from table
+  politician_array = Politician.by_state(new_rep.office)
+  # list_of_pols = politician_array.map.with_index {|pol, idx| "#{idx + 1}. #{pol.name}" }
+
+  def map_with_index(politician_ar)
+    politician_ar.map.with_index{|pol, i| "#{i + 1}. #{pol.name}"}
+  end
 
 # 10. User selects politicians
+
+  #=============================================
+  #PUTS FIRST LIST
+  #REP_1 == Instance of Politician
+  puts map_with_index(politician_array)
+
   puts "Enter the number next to the first representative you wish to bribe."
-  rep_1 = gets.chomp
-  #show updated list
-  puts "Enter the number next to the second representative you wish to bribe."
-  rep_2 = gets.chomp
-  #shows updated list
-  puts "Enter the number next to the third representative you wish to bribe."
-  rep_3 = gets.chomp
+  select_rep_1 = gets.chomp  #1
+  rep_1 = politician_array[select_rep_1.to_i - 1]  #1-1 = 0
+  puts rep_1.name
+  sleep(1)
+
+  #============================================
+  #PUTS SECOND LIST
+  #REP_2 == Instance of Politician
+  politician_array = politician_array - [rep_1]
+  puts map_with_index(politician_array)
+
+  puts "Enter the next person you wish to bribe."
+  select_rep_2 = gets.chomp  #1
+  rep_2 = politician_array[select_rep_2.to_i - 1]  #1-1 = 0
+  puts rep_2.name
+  sleep(1)
+
+  #=============================================
+  #PUTS THIRD LIST
+  #REP_3 == Instance of Politician
+  politician_array = politician_array - [rep_2]
+  puts map_with_index(politician_array)
+
+  puts "Enter the next person you wish to bribe."
+  select_rep_3 = gets.chomp  #1
+  rep_3 = politician_array[select_rep_3.to_i - 1]  #1-1 = 0
+  puts rep_3.name
+  sleep(1)
+
+  #=============================================
+
+  politician_array = politician_array - [rep_3]
+  puts map_with_index(politician_array)
+
+  #============================================
+
+
+  puts "\n1. #{rep_1.name} -- #{rep_1.party}"
+  puts "2. #{rep_2.name} -- #{rep_2.party}"
+  puts "3. #{rep_3.name} -- #{rep_3.party}\n"
+
+  #============================================
+  party_arr = [rep_1.party.downcase, rep_2.party.downcase, rep_3.party.downcase]
+  if new_rep.party.downcase == 'd' && party_arr.count('d') >= 2
+    puts "You did it! Enough representatives accepted your bribes."
+    new_rep.money += 20
+  elsif new_rep.party.downcase == 'r' && party_arr.count('r') >= 2
+    puts "You did it! Enough representatives accepted your bribes."
+    new_rep.money += 20
+  else
+    puts "Sorry, too many representatives from the other party rejected your bribes."
+    new_rep.money -= 10
+  end
+
+  Representative.update(new_rep.id, :money => new_rep.money)
+  puts rep_card(new_rep)
+  break if new_rep.money > 100 || new_rep.money < 0
+end
+
+
+
+
+
 
 # 11. Success or Failure determined ( e.g, "Sorry, Rep X didn't accept your bribe")
 # 12. Print out Representative Card to show updated status_points
