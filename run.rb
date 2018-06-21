@@ -187,6 +187,7 @@ puts ""
 sleep(2)
 puts ""
 
+loop do
 #create new Bill class instance
 new_bill = Bill.create(representative_id: new_rep.id, description: Bill.describe_rando)
 
@@ -234,8 +235,13 @@ puts ""
   #   elsif support_reject.downcase == 'r'
   #   end
 
-#loop do
+
   politician_array = Politician.by_state(new_rep.office)
+
+  if politician_array.length <= 10
+    puts "Sorry, there aren't enought politicians in your state to bribe. We're going to bus in some from other areas!"
+    politician_array = Politician.all.sample(15)
+  end
 
   def map_with_index(politician_ar)
     politician_ar.map.with_index {|pol, i| "   #{i + 1}. #{pol.name}" }
@@ -355,6 +361,7 @@ puts ""
 
   rep_arr = [rep_1, rep_2, rep_3]
 
+
   if new_rep.party.downcase == 'd' && (rep_arr.count {|rep| rep.party == 'D' } >= 2)
     puts "You did it! Enough representatives accepted your bribes."
     new_rep.money += 20
@@ -362,6 +369,8 @@ puts ""
     rep_arr.each do |rep|
       if rep.party == "D"
         new_bill.create_pass_fail_bills(rep)
+        # binding.pry
+
       end
     end
 
@@ -384,8 +393,15 @@ puts ""
   Representative.update(new_rep.id, :money => new_rep.money)
   puts rep_card(new_rep)
 
-#   break if new_rep.money > 100 || new_rep.money < 0
-# end
+
+
+
+
+
+  break if new_rep.money > 100 || new_rep.money < 0
+end
+puts "Here are your pocketed politicians! #{new_rep.my_pols_names.uniq.join(", ")}"
+puts "Your new balance is #{new_rep.money}"
 
 #end
 

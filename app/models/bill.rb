@@ -20,8 +20,7 @@ class Bill < ActiveRecord::Base
 
   def my_pfbills
     PassFailBill.all.select { |pfbill| pfbill.bill_id == self.id }
-    end
-
+  end
 
 end
 
