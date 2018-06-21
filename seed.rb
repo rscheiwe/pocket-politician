@@ -25,3 +25,24 @@ ny.find_politicians_data(state_arr)
 ny.politicians_hashes
 
 Pry.start
+
+#ruby.start
+#(in pry) load './config/environment.rb'
+#Politician.seed_politicians (moves to database)
+
+
+#richard = Candidates.new
+#richard.find_candidates_data(["NY", "NJ"])
+# ==> the above pushes to @cands to be read in the
+#     following method
+#richard.candidates_hashes
+# ==> creates hashes
+#richard.candidates
+# ==> returns flattened array of candidates_hashes
+
+#API Key 1c75e9b1efe4f5eb843c6397427019e9
+
+#==========================================
+#Cleaning database and resetting index
+#gem install database_cleaner
+#DatabaseCleaner.clean_with(:truncation, :only => ['yourtablename'])
