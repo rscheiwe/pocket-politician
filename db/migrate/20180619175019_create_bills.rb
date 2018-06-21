@@ -3,10 +3,9 @@ class CreateBills < ActiveRecord::Migration[5.1]
 
     create_table :bills do |t|
       t.string :description
-      t.integer :representative_id
+      t.integer :representative_id #remove before re-migrating
       t.integer :pass_fail_bill_id
-      # t.boolean :passed
-
     end
   end
+  
 end
