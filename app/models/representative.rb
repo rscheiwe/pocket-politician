@@ -18,11 +18,11 @@ class Representative < ActiveRecord::Base
   end
 
   def my_pfbills
-    self.my_bills.map { |bill| bill.my_pfbills }
+    self.my_bills.map { |bill| bill.my_pfbills }.flatten
   end
 
   def my_pol_ids
-    self.my_pfbills.map { |pf| pf[0].politician_id }
+    self.my_pfbills.map { |pf| pf.politician_id }
   end
 
   # def my_pols
@@ -34,6 +34,7 @@ class Representative < ActiveRecord::Base
   # end
 
   def my_pols
+    # binding.pry
     self.my_pol_ids.map { |id| Politician.where("id = ?", id) }.flatten
   end
 
