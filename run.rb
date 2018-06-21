@@ -7,6 +7,7 @@ require_relative './app/models/representative.rb'
 require_relative './app/models/bill.rb'
 require_relative './app/models/politician.rb'
 
+system "clear"
 #==========================================
 
 puts "                        __            __"
@@ -90,7 +91,7 @@ end
 
 #slowly do <code> end
 def slowly
-  yield.each_char { |c| putc c; $stdout.flush; sleep 0.25 }
+  yield.each_char { |c| putc c; $stdout.flush; sleep 0.05 }
 end
 
 #=================================================
@@ -99,9 +100,8 @@ sleep(2)
 slowly do
   "W E L C O M E".center(50, " *")
 end
-puts ""
-puts ""
-sleep(2)
+puts "\n"*2
+sleep(1)
 
 puts "Your mission is to climb the political ladder. \n
 You must gain favor by passing legislation. \n
@@ -115,21 +115,21 @@ continue_story
   # enter_quit = gets.chomp
 
 puts "We'll have to gather some information on you first."
-4.times  { makeNewLine(array) }
+1.times  { makeNewLine(array) }
 
 puts "Please enter your name: "
 rep_name = gets.chomp
-3.times  { makeNewLine(array) }
+1.times  { makeNewLine(array) }
 puts ""
 
 puts "Please enter your state: \n"
 rep_state = gets.chomp
-3.times  { makeNewLine(array) }
+1.times  { makeNewLine(array) }
 puts ""
 
 puts "Please enter your Party affiliation: \n ('d' for Democrat or 'r' for Republican.)\n"
 rep_party = gets.chomp
-3.times  { makeNewLine(array) }
+1.times  { makeNewLine(array) }
 puts ""
 
 #create Representative class instance of user
@@ -157,12 +157,11 @@ puts "Passing bills will increase your money, failure will lose you money."
 sleep(0.5)
 
 puts "Get $100 to win. But if you drop below $0, you'll lose!"
-puts ""
-puts ""
+puts "\n"*2
 continue_story
 
 puts "Printing your representative ID card. Don't lose it!"
-3.times  { makeNewLine(array) }
+1.times  { makeNewLine(array) }
 puts ""
 puts rep_card(new_rep)
 puts ""
@@ -177,10 +176,11 @@ continue_story
 puts "We are now creating a bill for you to decide on"
 puts ""
 
+# progress bar
 1.upto(100) do |i|
   progress = "=" * (i/5) unless i < 5
   printf("\rGenerating Bill: [%-20s] %d%% %s", progress, i, spinner.next)
-  sleep(0.05)
+  sleep(0.025)
 end
 
 puts ""
@@ -196,7 +196,7 @@ puts ""
 new_bill.description.upcase.each_char do |char|
    putc char
    $stdout.flush
-   sleep 0.25
+   sleep 0.1
 end
 
 puts ""
@@ -206,14 +206,14 @@ puts ""
 puts "We are now gathering politicians to bribe"
 puts ""
 
+# progress bar
 1.upto(100) do |i|
   progress = "=" * (i/5) unless i < 5
   printf("\rGenerating Politicians: [%-20s] %d%% %s", progress, i, spinner.next)
-  sleep(0.05)
+  sleep(0.025)
 end
 
-puts ""
-puts ""
+puts "\n"*2
 sleep(1)
 
 puts "So, your bill is: "
@@ -237,17 +237,17 @@ puts ""
 #loop do
   politician_array = Politician.by_state(new_rep.office)
 
-  # def map_with_index(politician_ar)
-  #   politician_ar.map.with_index {|pol, i| "   #{i + 1}. #{pol.name}" }
-  # end
-
   def map_with_index(politician_ar)
-    politician_ar.map.with_index do |pol, i|
-      puts "   #{i + 1}. #{pol.name}"
-      $stdout.flush
-      sleep 0.25
-    end
+    politician_ar.map.with_index {|pol, i| "   #{i + 1}. #{pol.name}" }
   end
+
+  # def map_with_index(politician_ar)
+  #   politician_ar.map.with_index do |pol, i|
+  #     puts "   #{i + 1}. #{pol.name}"
+  #     $stdout.flush
+  #     sleep 0.25
+  #   end
+  # end
 
   #=============================================
   #PUTS FIRST LIST of Politicians
@@ -321,8 +321,8 @@ puts ""
 
   #============================================
 
-    puts ""
-    puts ""
+    puts "\n"*2
+
 
     puts "BRIBE RESULTS".center(40, " *")
     puts "*" + "*".rjust(39)
@@ -353,13 +353,28 @@ puts ""
 
   #============================================
 
-  party_arr = [rep_1.party.downcase, rep_2.party.downcase, rep_3.party.downcase]
-  if new_rep.party.downcase == 'd' && party_arr.count('d') >= 2
+  rep_arr = [rep_1, rep_2, rep_3]
+
+  if new_rep.party.downcase == 'd' && (rep_arr.count {|rep| rep.party == 'D' } >= 2)
     puts "You did it! Enough representatives accepted your bribes."
     new_rep.money += 20
-  elsif new_rep.party.downcase == 'r' && party_arr.count('r') >= 2
+
+    rep_arr.each do |rep|
+      if rep.party == "D"
+        new_bill.create_pass_fail_bills(rep)
+      end
+    end
+
+  elsif new_rep.party.downcase == 'r' && (rep_arr.count {|rep| rep.party == 'R' } >= 2)
     puts "You did it! Enough representatives accepted your bribes."
     new_rep.money += 20
+
+    rep_arr.each do |rep|
+      if rep.party == "R"
+        new_bill.create_pass_fail_bills(rep)
+      end
+    end
+
   else
     puts "Sorry, too many representatives from the other party rejected your bribes."
     new_rep.money -= 10
@@ -374,12 +389,20 @@ puts ""
 
 #end
 
+  # party_arr = [rep_1.party.downcase, rep_2.party.downcase, rep_3.party.downcase]
+  # if new_rep.party.downcase == 'd' && party_arr.count('d') >= 2
+  #   puts "You did it! Enough representatives accepted your bribes."
+  #   new_rep.money += 20
+  #   new_bill.create_pass_fail_bills(rep_1)
+  #
+  # elsif new_rep.party.downcase == 'r' && party_arr.count('r') >= 2
+  #   puts "You did it! Enough representatives accepted your bribes."
+  #   new_rep.money += 20
+  #   new_bill.create_pass_fail_bills(rep_1, rep_2, rep_3)
 
 
 
 
 
-# 11. Success or Failure determined ( e.g, "Sorry, Rep X didn't accept your bribe")
-# 12. Print out Representative Card to show updated status_points
-# 13. Replay 8-12
+
 # 14. Break at X points for WIN, Y points for LOSS

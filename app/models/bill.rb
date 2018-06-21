@@ -6,12 +6,24 @@ class Bill < ActiveRecord::Base
 
 
   def self.describe_rando
-    verbs = ["save", "free", "cut spending on"]
-    nouns = ["dogs", "whales", "guns", "taxes"]
+    verbs = ["support ", "cut spending on ", "increase spending on "]
+    nouns = ["the whales", "guns", "taxes", "the environment", "children",
+            "education", "infrastructure", "insurance", "social security",
+            "the NSA", "defense", "foreign relations"]
 
-    verbs.sample + " the " + nouns.sample
+    verbs.sample + nouns.sample
   end
-    
+
+  def create_pass_fail_bills(rep1)
+    PassFailBill.create(politician_id: rep1.id, bill_id: self.id)
+  end
+
+  def my_pfbills
+    PassFailBill.all.select { |pfbill| pfbill.bill_id == self.id }
+    end
+
+
+end
 
 
 
@@ -28,5 +40,3 @@ class Bill < ActiveRecord::Base
   # def politicians
   #   self.pass_fail_bills.map {|bill| bill.politician }
   # end
-
-end

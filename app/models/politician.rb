@@ -4,16 +4,11 @@ class Politician < ActiveRecord::Base
   has_many :bills, through: :pass_fail_bills
 
   def self.seed_politicians
-    GetData.politicians.each do |politician|
-      Politician.create(politician)
-    end
+    GetData.politicians.each { |politician| Politician.create(politician) }
   end
 
   def self.by_state(state)
     Politician.where("office = ?", state)
-
-    #pol_x.state = 'NY01'
-    #pol_x.state[0..1] = 'NY'
   end
 
 end

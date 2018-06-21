@@ -13,8 +13,40 @@ class Representative < ActiveRecord::Base
     'N000' + x.join("")
   end
 
-  # def create_new_bill
-  #   Bill.create
+  def my_bills
+    Bill.all.select { |bill| bill.representative_id == self.id }
+  end
+
+  def my_pfbills
+    self.my_bills.map { |bill| bill.my_pfbills }
+  end
+
+  def my_pol_ids
+    self.my_pfbills.map { |pf| pf[0].politician_id }
+  end
+
+  # def my_pols
+  #   Politician.all.map do |pol|
+  #     self.my_pol_ids.select do |id|
+  #       pol.id == id
+  #     end
+  #   end
   # end
+
+  def my_pols
+    self.my_pol_ids.map { |id| Politician.where("id = ?", id) }.flatten
+  end
+
+  def my_pols_names
+    self.my_pols.map { |pol| pol.name }
+  end
+  # def my_p_f_bills
+  #   PassFailBill.all.select do |pfbill|
+  #     self.my_bills.each do |bill|
+  #       pfbill.bill_id == bill.id
+  #     end
+  #   end
+  # end
+
 
 end
