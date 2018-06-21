@@ -122,15 +122,30 @@ rep_name = gets.chomp
 1.times  { makeNewLine(array) }
 puts ""
 
-puts "Please enter your state: \n"
-rep_state = gets.chomp
+rep_state = ""
+  loop do
+    puts "Please enter your state: \n"
+    rep_state = gets.chomp.upcase
+      if rep_state.length != 2
+      puts "Please enter state abreviation (i.e. CA, NY)"
+    end
+  break if rep_state.length == 2
+  end
+
 1.times  { makeNewLine(array) }
 puts ""
 
-puts "Please enter your Party affiliation: \n ('d' for Democrat or 'r' for Republican.)\n"
-rep_party = gets.chomp
-1.times  { makeNewLine(array) }
-puts ""
+rep_party = ""
+  loop do
+    puts "Please enter your Party affiliation: \n ('d' for Democrat or 'r' for Republican.)\n"
+    rep_party = gets.chomp.downcase
+      if rep_party.length != 1
+        puts "Please only enter 'D' or 'R'."
+      end
+    1.times  { makeNewLine(array) }
+    puts ""
+  break if rep_party == 'd' || rep_party == 'r'
+  end
 
 #create Representative class instance of user
 new_rep = Representative.create(
@@ -187,8 +202,14 @@ puts ""
 sleep(2)
 puts ""
 
+rep_arr = []
+politician_array = Politician.by_state(new_rep.office)
+
 loop do
 #create new Bill class instance
+puts "Ready for your new bill?"
+continue_story
+puts ""
 new_bill = Bill.create(representative_id: new_rep.id, description: Bill.describe_rando)
 
 puts "Your bill is: "
@@ -217,7 +238,7 @@ end
 puts "\n"*2
 sleep(1)
 
-puts "So, your bill is: "
+puts "REMEMBER: your bill is: "
 0.upto(5) do
   STDOUT.print "\r#{new_bill.description.upcase}"
   sleep 0.25
@@ -227,40 +248,35 @@ end
 puts "#{new_bill.description.upcase}"
 puts ""
 
-# 8. Ask to support or vote against bill
-  # "Enter 's' to support bill or 'r' to reject bill:"
-  # support_reject = gets.chomp
-  #   if support_reject.downcase == 's'
-  #
-  #   elsif support_reject.downcase == 'r'
-  #   end
-
-
-  politician_array = Politician.by_state(new_rep.office)
+  if !rep_arr.empty?
+    politician_array = politician_array - rep_arr
+  else
+    politician_array = politician_array
+  end
 
   if politician_array.length <= 10
     puts "Sorry, there aren't enought politicians in your state to bribe. We're going to bus in some from other areas!"
     politician_array = Politician.all.sample(15)
   end
 
-  def map_with_index(politician_ar)
-    politician_ar.map.with_index {|pol, i| "   #{i + 1}. #{pol.name}" }
-  end
-
   # def map_with_index(politician_ar)
-  #   politician_ar.map.with_index do |pol, i|
-  #     puts "   #{i + 1}. #{pol.name}"
-  #     $stdout.flush
-  #     sleep 0.25
-  #   end
+  #   politician_ar.map.with_index {|pol, i| "   #{i + 1}. #{pol.name}" }
   # end
+
+  def map_with_index(politician_ar)
+    politician_ar.map.with_index do |pol, i|
+      puts "   #{i + 1}. #{pol.name}"
+      # $stdout.flush
+      sleep 0.1
+    end
+  end
 
   #=============================================
   #PUTS FIRST LIST of Politicians
   #REP_1 == Instance of Politician
   puts "POLITICIANS".center(30, " *")
   puts ""
-  puts map_with_index(politician_array)
+  map_with_index(politician_array)
   puts ""
   puts "".center(30, " *")
   puts ""
@@ -282,7 +298,7 @@ puts ""
   puts "POLITICIANS".center(30, " *")
   puts ""
   politician_array = politician_array - [rep_1]
-  puts map_with_index(politician_array)
+  map_with_index(politician_array)
   puts ""
   puts "".center(30, " *")
   puts ""
@@ -304,7 +320,7 @@ puts ""
   puts "POLITICIANS".center(30, " *")
   puts ""
   politician_array = politician_array - [rep_2]
-  puts map_with_index(politician_array)
+  map_with_index(politician_array)
   puts ""
   puts "".center(30, " *")
   puts ""
@@ -323,7 +339,7 @@ puts ""
   #=============================================
 
   politician_array = politician_array - [rep_3]
-  puts map_with_index(politician_array)
+  # map_with_index(politician_array)
 
   #============================================
 
@@ -392,7 +408,18 @@ puts ""
 
   Representative.update(new_rep.id, :money => new_rep.money)
   puts rep_card(new_rep)
+  puts "\n"*2
 
+  puts "You currently have: "
+  0.upto(5) do
+    STDOUT.print "\r#{new_rep.money}"
+    sleep 0.25
+    STDOUT.print "\r   " # Send return and six spaces
+    sleep 0.25
+  end
+  puts "#{new_rep.money}"
+  sleep(0.5)
+  puts "\n"*2
 
 
 
