@@ -1,5 +1,3 @@
-# require 'rest-client'
-#require 'json'
 require 'rubygems'
 require 'colorize'
 require 'io/console'
@@ -50,12 +48,11 @@ If they are from the opposing party, they will not accept your bribe."
 puts ""
 puts "\n"
 
-puts "U S A".center(60, " *").colorize(:background => :light_blue)
+GameMethod.usa_banner
 GameMethod.continue_story
 system "clear"
 
-puts "U S A".center(60, " *").colorize(:background => :light_blue)
-puts "\n"*2
+GameMethod.usa_banner
 puts "We'll have to gather some information on you first."
 1.times  { GameMethod.makeNewLine(array) }
 
@@ -103,7 +100,7 @@ puts ""
 
 puts "You currently have: "
 0.upto(5) do
-  STDOUT.print "\r$50".colorize(:green)
+  STDOUT.print "\r\e[5;1;32;42m$50\e[0m".colorize(:green)
   sleep 0.25
   STDOUT.print "\r   " # Send return and six spaces
   sleep 0.25
@@ -118,19 +115,18 @@ puts ""
 
 puts "Get " + "$100".colorize(:light_green) + " to win. But if you drop below " + "$0".colorize(:light_red) + ", you'll lose!"
 puts "\n"*2
-puts "U S A".center(60, " *").colorize(:background => :light_blue)
+GameMethod.usa_banner
 GameMethod.continue_story
 system "clear"
 
-puts "U S A".center(60, " *").colorize(:background => :light_blue)
-puts "\n"*2
+GameMethod.usa_banner
 puts "Printing your representative ID card. Don't lose it!"
 1.times  { GameMethod.makeNewLine(array) }
 puts ""
 puts GameMethod.rep_card(new_rep)
 puts "\n"*2
-sleep(1.5)
-puts "U S A".center(60, " *").colorize(:background => :light_blue)
+GameMethod.usa_banner
+sleep(1)
 GameMethod.continue_story
 system "clear"
 #=================================================
@@ -140,8 +136,7 @@ politician_array = Politician.by_state(new_rep.office)
 
 loop do
   # 8. Prints first bill
-  puts "U S A".center(60, " *").colorize(:background => :light_blue)
-  puts ""
+  GameMethod.usa_banner
   puts "We are now creating a bill for you to decide on"
   puts ""
 
@@ -155,13 +150,6 @@ loop do
   puts ""
   sleep(2)
   puts ""
-
-  # rep_arr = []
-  # politician_array = Politician.by_state(new_rep.office)
-
-  # loop do
-  #create new Bill class instance
-    # system "clear"
 
   new_bill = Bill.create(representative_id: new_rep.id, description: Bill.describe_rando)
 
@@ -219,84 +207,54 @@ loop do
   #   politician_ar.map.with_index {|pol, i| "   #{i + 1}. #{pol.name}" }
   # end
 
-  def map_with_index(politician_ar)
-    politician_ar.map.with_index do |pol, i|
-      puts "   #{i + 1}. #{pol.name}"
-      # $stdout.flush
-      sleep 0.1
-    end
-  end
+
 
   system "clear"
   #=============================================
   #PUTS FIRST LIST of Politicians
   #REP_1 == Instance of Politician
-  puts "POLITICIANS".center(30, " *").colorize(:background => :light_blue)
-  puts ""
-  map_with_index(politician_array)
-  puts ""
-  puts "".center(30, " *").colorize(:background => :light_red)
-  puts "\n"*2
+  GameMethod.politician_banner
+  GameMethod.map_with_index(politician_array)
+  GameMethod.red_banner
 
   puts "CURRENT BILL: ".colorize(:light_red) + "#{new_bill.description.upcase}".colorize(:yellow)
   puts "** Enter the number next to the first representative you wish to bribe **"
 
   select_rep_1 = gets.chomp  #1
   rep_1 = politician_array[select_rep_1.to_i - 1]  #1-1 = 0
-  puts ""
-  puts "".center(30, " $ ").colorize(:light_green)
-  puts "#{rep_1.name}".center(30, "  *  ")
-  puts "".center(30, " $ ").colorize(:light_green)
-  puts ""
-  sleep(2)
+  GameMethod.bribed(rep_1.name)
 
   system "clear"
   #============================================
   #PUTS SECOND LIST of Politicians
   #REP_2 == Instance of Politician
-  puts "POLITICIANS".center(30, " *").colorize(:background => :light_blue)
-  puts ""
+  GameMethod.politician_banner
   politician_array = politician_array - [rep_1]
-  map_with_index(politician_array)
-  puts ""
-  puts "".center(30, " *").colorize(:background => :light_red)
-  puts "\n"*2
+  GameMethod.map_with_index(politician_array)
+  GameMethod.red_banner
 
   puts "CURRENT BILL: ".colorize(:light_red) + "#{new_bill.description.upcase}".colorize(:yellow)
   puts "** Enter the next person you wish to bribe **"
 
   select_rep_2 = gets.chomp  #1
   rep_2 = politician_array[select_rep_2.to_i - 1]  #1-1 = 0
-  puts ""
-  puts "".center(30, " $ ").colorize(:light_green)
-  puts "#{rep_2.name}".center(30, "  *  ")
-  puts "".center(30, " $ ").colorize(:light_green)
-  puts ""
-  sleep(2)
+  GameMethod.bribed(rep_2.name)
 
   system "clear"
   #=============================================
   #PUTS THIRD LIST of Politicians
   #REP_3 == Instance of Politician
-  puts "POLITICIANS".center(30, " *").colorize(:background => :light_blue)
-  puts ""
+  GameMethod.politician_banner
   politician_array = politician_array - [rep_2]
-  map_with_index(politician_array)
-  puts ""
-  puts "".center(30, " *").colorize(:background => :light_red)
-  puts "\n"*2
+  GameMethod.map_with_index(politician_array)
+  GameMethod.red_banner
 
   puts "CURRENT BILL: ".colorize(:light_red) + "#{new_bill.description.upcase}".colorize(:yellow)
   puts "** Enter the next person you wish to bribe **"
 
   select_rep_3 = gets.chomp  #1
   rep_3 = politician_array[select_rep_3.to_i - 1]  #1-1 = 0
-  puts ""
-  puts "".center(30, " $ ").colorize(:light_green)
-  puts "#{rep_3.name}".center(30, "  *  ")
-  puts "".center(30, " $ ").colorize(:light_green)
-  puts ""
-  sleep(2)
+  GameMethod.bribed(rep_3.name)
 
   #=============================================
 
@@ -304,32 +262,7 @@ loop do
 
   #============================================
   system "clear"
-  puts "U S A".center(60, " *").colorize(:background => :light_blue)
-  puts "\n"*2
-  puts "    " + "BRIBE RESULTS".center(40, " $").colorize(:background => :light_green)
-  puts "    *".colorize(:light_green) + "*".rjust(39).colorize(:light_green)
-  puts "    " + "1. #{rep_1.name} -- #{rep_1.party}".center(40, " ")
-  puts "    *" + "*".rjust(39)
-  puts "    " + "2. #{rep_2.name} -- #{rep_2.party}".center(40, " ")
-  puts "    *".colorize(:light_green) + "*".rjust(39).colorize(:light_green)
-  puts "    " + "3. #{rep_3.name} -- #{rep_3.party}".center(40, " ")
-  puts "    *" + "*".rjust(39)
-  puts "    " + "_.-'~~`~~'-._".center(40, " ")
-  puts "    *".colorize(:light_green) + ".'`  B   E   R  `'.".center(38, " ") + "*".rjust(1).colorize(:light_green)
-  puts "    " + "/ I               T \\".center(40, " ")
-  puts "    *" + "/       .-'~*-.       \\".center(38, " ") + "*".rjust(1)
-  puts "    " + "; L     / `-    \      Y ;".center(40, " ")
-  puts "    *".colorize(:light_green) + ";       />  `.  -.|       ;".center(38, " ") + "*".rjust(1).colorize(:light_green)
-  puts "    " + "|      /_     '-.__)      |".center(40, " ")
-  puts "    *" + "|        |-  _.' \ |       |".center(38, " ") + "*".rjust(1)
-  puts "    " + ";        `~~;     \\       ;".center(40, " ")
-  puts "    *".colorize(:light_green) + ";  INGODWE /      \\)P   ;".center(38, " ") + "*".rjust(1).colorize(:light_green)
-  puts "    " + "\\  TRUST '.___.-'`*     /".center(40, " ")
-  puts "    *" + "`\\                   /`".center(38, " ") + "*".rjust(1)
-  puts "    " + "'._   1 9 9 7   _.'".center(40, " ")
-  puts "    *".colorize(:light_green) + "`'-..,,,..-'`".center(38, " ") + "*".rjust(1).colorize(:light_green)
-  puts "    " + "USA".center(40, " $").colorize(:background => :light_green)
-  puts "\n"*2
+  GameMethod.bribe_results(rep_1, rep_2, rep_3)
 
   #============================================
 
@@ -362,13 +295,12 @@ loop do
   puts "\n"*2
   Representative.update(new_rep.id, :money => new_rep.money)
 
-  puts "U S A".center(60, " *").colorize(:background => :light_blue)
+  GameMethod.usa_banner
   GameMethod.continue_story
 
   system "clear"
 
-  puts "U S A".center(60, " *").colorize(:background => :light_blue)
-  puts "\n"*2
+  GameMethod.usa_banner
   puts GameMethod.rep_card(new_rep)
   puts ""
 
@@ -382,7 +314,7 @@ loop do
   puts "$#{new_rep.money}".colorize(:light_green)
   sleep(0.5)
   puts "\n"*2
-  puts "U S A".center(60, " *").colorize(:background => :light_blue)
+  GameMethod.usa_banner
   GameMethod.continue_story
   system "clear"
 
@@ -391,20 +323,14 @@ end
 
 system "clear"
 
-puts "U S A".center(60, " *").colorize(:background => :light_blue)
-
-puts "\n"*2
+GameMethod.usa_banner
 0.upto(5) do
   STDOUT.print "\rCONGRATULATIONS".colorize(:light_green)
   sleep 0.25
-  STDOUT.print "\r   " # Send return and six spaces
+  STDOUT.print "\r               "
   sleep 0.25
 end
 
 puts "Here are your pocketed politicians! #{new_rep.my_pols_names.uniq.join(", ")}"
 
-puts "\n"*2
 GameMethod.money_sign
-puts "\n"*2
-
-#end

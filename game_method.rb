@@ -50,6 +50,7 @@ class GameMethod
   end
 
   def self.money_sign
+    puts "\n"*2
     puts "  ,,,,,,,,,,,,,,,,,,,,,,$$$$".colorize(:light_green)
     puts "  ,,,,,,,,,,,$$$$$$$$$$$$$$$$$".colorize(:light_green)
     puts "  ,,,,,,,$$$$$$$$$$$$$$$$$$$$$$$$$".colorize(:light_green)
@@ -74,6 +75,36 @@ class GameMethod
     puts "  ,,,,,,$$$$$$$$$$$$$$$$$$$$$$$$$$$".colorize(:light_green)
     puts "  ,,,,,,,,,,$$$$$$$$$$$$$$$$$$$".colorize(:light_green)
     puts "  ,,,,,,,,,,,,,,,,,,$$$$$$$$".colorize(:light_green)
+    puts "\n"*2
+  end
+
+  def self.bribe_results(name1, name2, name3)
+    puts "U S A".center(60, " *").colorize(:background => :light_blue)
+    puts "\n"*2
+    puts "    " + "BRIBE RESULTS".center(40, " $").colorize(:background => :light_green)
+    puts "    *".colorize(:light_green) + "*".rjust(39).colorize(:light_green)
+    puts "    " + "1. #{name1.name} -- #{name1.party}".center(40, " ")
+    puts "    *" + "*".rjust(39)
+    puts "    " + "2. #{name2.name} -- #{name2.party}".center(40, " ")
+    puts "    *".colorize(:light_green) + "*".rjust(39).colorize(:light_green)
+    puts "    " + "3. #{name3.name} -- #{name3.party}".center(40, " ")
+    puts "    *" + "*".rjust(39)
+    puts "    " + "_.-'~~`~~'-._".center(40, " ")
+    puts "    *".colorize(:light_green) + ".'`  B   E   R  `'.".center(38, " ") + "*".rjust(1).colorize(:light_green)
+    puts "    " + "/ I               T \\".center(40, " ")
+    puts "    *" + "/       .-'~*-.       \\".center(38, " ") + "*".rjust(1)
+    puts "    " + "; L     / `-    \      Y ;".center(40, " ")
+    puts "    *".colorize(:light_green) + ";       />  `.  -.|       ;".center(38, " ") + "*".rjust(1).colorize(:light_green)
+    puts "    " + "|      /_     '-.__)      |".center(40, " ")
+    puts "    *" + "|        |-  _.' \ |       |".center(38, " ") + "*".rjust(1)
+    puts "    " + ";        `~~;     \\       ;".center(40, " ")
+    puts "    *".colorize(:light_green) + ";  INGODWE /      \\)P   ;".center(38, " ") + "*".rjust(1).colorize(:light_green)
+    puts "    " + "\\  TRUST '.___.-'`*     /".center(40, " ")
+    puts "    *" + "`\\                   /`".center(38, " ") + "*".rjust(1)
+    puts "    " + "'._   1 9 9 7   _.'".center(40, " ")
+    puts "    *".colorize(:light_green) + "`'-..,,,..-'`".center(38, " ") + "*".rjust(1).colorize(:light_green)
+    puts "    " + "USA".center(40, " $").colorize(:background => :light_green)
+    puts "\n"*2
   end
 
   def self.makeNewLine(array)
@@ -100,6 +131,39 @@ class GameMethod
 
   def self.slowly
     yield.each_char { |c| putc c; $stdout.flush; sleep 0.05 }
+  end
+
+  def self.bribed(name)
+    puts ""
+    puts "".center(30, " $ ").colorize(:light_green)
+    puts "#{name}".center(30, "  *  ")
+    puts "".center(30, " $ ").colorize(:light_green)
+    puts ""
+    sleep(2)
+  end
+
+  def self.politician_banner
+    puts "POLITICIANS".center(30, " *").colorize(:background => :light_blue)
+    puts ""
+  end
+
+  def self.red_banner
+    puts ""
+    puts "".center(30, " *").colorize(:background => :light_red)
+    puts "\n"*2
+  end
+
+  def self.usa_banner
+    puts "U S A".center(60, " *").colorize(:background => :light_blue)
+    puts "\n"*2
+  end
+
+  def self.map_with_index(politician_ar)
+    politician_ar.map.with_index do |pol, i|
+      puts "   #{i + 1}. #{pol.name}"
+      # $stdout.flush
+      sleep 0.1
+    end
   end
 
 end
