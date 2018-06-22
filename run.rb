@@ -318,19 +318,23 @@ loop do
   GameMethod.continue_story
   system "clear"
 
-  break if new_rep.money >= 100 || new_rep.money < 0
+  break if new_rep.money >= 60 || new_rep.money < 0
 end
 
 system "clear"
 
 GameMethod.usa_banner
-0.upto(5) do
+0.upto(50) do
   STDOUT.print "\rCONGRATULATIONS".colorize(:light_green)
   sleep 0.25
   STDOUT.print "\r               "
   sleep 0.25
 end
+puts ""
 
-puts "Here are your pocketed politicians! #{new_rep.my_pols_names.uniq.join(", ")}"
+pocketed_politicians = new_rep.my_pols_names.uniq
+puts "Here are your pocketed politicians! "
+puts ""
+pocketed_politicians.map { |pol| p pol }
 
 GameMethod.money_sign
