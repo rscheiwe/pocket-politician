@@ -1,4 +1,23 @@
-# pocket-politician
+# Pocket Politician
+### *The Politician in Your Pocket* 
+
+*Pocket Politician* is a CLI game where you attempt to bribe members of the US Congress in order to get them to pass legislation on your behalf. You can play as a party member from your state or choose another state to satisfy your curiosity. Members of the opposing party know about your deceptions, so watch out and don't choose any opposition parties because they'll steal your money. 
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+*Pocket Politician* is written in Ruby, so your environment must have the language install. 
+
+### Installing
+
+## Built With
+
+## Authors
+
+## License
 
 Using OpenSecrets getLegislators API to retrieve politician data.
 
