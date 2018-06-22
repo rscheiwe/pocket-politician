@@ -9,19 +9,46 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-*Pocket Politician* is written in Ruby, so your environment must have the language install. 
+*Pocket Politician* is written in Ruby, so your environment must have the language. 
 
 ### Installing
 
+Fork and clone the repository to your system. Currently, the `database` is seeded with representatives as of 2018, so it is ready to run out of the box. Simply run
+
+`ruby run.rb`
+
+in your CLI, and play along. 
+
+*Pocket Politician* uses the OpenSecrets `getLegislators` API to retrieve politician data from their database. (See Built With below for more information.) If you wish to reseed the `database`, follow these instructions.
+
+1. run `ruby seed.rb` 
+
+   The `seed.rb` file has a working list of the states, `state_arr`. This may be altered with the relevant `id` requirements outlined in the OpenSecrets API documentation.
+
+2. Upon completion, a `Pry` session will open and you can run, `GetData.politicians` to view an array of hashes of your retrieved data.
+
+3. If the data looks fine, run (in `Pry`):
+   
+   `load './config/environment.rb'`  
+   `load './app/models/politician.rb'`  
+   `Politician.seed_politicians`  
+   
+   and your `db` will be populated to work with.
+
 ## Built With
+
+- [OpenSecrets API](https://www.opensecrets.org/open-data/api) - Open Data for Congress
+- [RESTClient](https://github.com/rest-client/rest-client) - HTTP and REST client for Ruby
 
 ## Authors
 
+- Katrina Garloff - [GitHub Profile](https://github.com/katrinagarloff)
+- Ricahrd Scheiwe - [GitHub Profile](https://github.com/rscheiwe)
+
 ## License
 
-Using OpenSecrets getLegislators API to retrieve politician data.
+This project is licensed under the MIT License - see 
 
-https://www.opensecrets.org/api/?method=getLegislators&output=doc
 
 
 ```
