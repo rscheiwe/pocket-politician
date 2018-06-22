@@ -4,7 +4,6 @@ class Bill < ActiveRecord::Base
   has_many :pass_fail_bills
   has_many :politicians, through: :pass_fail_bills
 
-
   def self.describe_rando
     verbs = ["support ", "cut spending on ", "increase spending on "]
     nouns = ["the whales", "guns", "taxes", "the environment", "children",
@@ -23,19 +22,3 @@ class Bill < ActiveRecord::Base
   end
 
 end
-
-
-
-
-
-  # def pass_fail_bills
-  #   has_many macro
-  #   PassFailBill.all.select do |pfb|
-  #     pfb.bill == self
-  #   end
-  # end
-
-  # has_many_through
-  # def politicians
-  #   self.pass_fail_bills.map {|bill| bill.politician }
-  # end
