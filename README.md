@@ -47,7 +47,7 @@ Please read [CONTRIBUTING.md](https://github.com/rscheiwe/pocket-politician/blob
 ## Authors
 
 - Katrina Garloff - [GitHub Profile](https://github.com/katrinagarloff)
-- Ricahrd Scheiwe - [GitHub Profile](https://github.com/rscheiwe)
+- Richard Scheiwe - [GitHub Profile](https://github.com/rscheiwe)
 
 ## License
 
