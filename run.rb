@@ -324,7 +324,7 @@ end
 system "clear"
 
 GameMethod.usa_banner
-0.upto(50) do
+0.upto(5) do
   STDOUT.print "\rCONGRATULATIONS".colorize(:light_green)
   sleep 0.25
   STDOUT.print "\r               "
