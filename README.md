@@ -40,6 +40,10 @@ in your CLI, and play along.
 - [OpenSecrets API](https://www.opensecrets.org/open-data/api) - Open Data for Congress
 - [RESTClient](https://github.com/rest-client/rest-client) - HTTP and REST client for Ruby
 
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/rscheiwe/pocket-politician/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
 ## Authors
 
 - Katrina Garloff - [GitHub Profile](https://github.com/katrinagarloff)
@@ -47,7 +51,11 @@ in your CLI, and play along.
 
 ## License
 
-This project is licensed under the MIT License - see 
+This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) file for details. 
+
+## Acknowledgments
+
+* Hat tip to [Arren Alexander](https://github.com/aalexander3) for the inspiration!
 
 
 
@@ -72,47 +80,7 @@ This project is licensed under the MIT License - see
    \ \_\                                                            
     \/_/                                                            
 
+v.1.2.10
 ```
-```
-·····sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssse····
-····)QQQQQQQQQQQQQQQQQQQQQQQQSdPPPbPSSQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQQQbbb··············bbPSSQQQQQQQQQQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQSbb······p··psssspp··········bDbbSSQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQSb····psQSb···············Dep···········QQQQQQQQQQQQQQQQQ····
-····sQQQQQQQQQQQQQQp···(QQb······················e·········)QQQQQQQQQQQQQQQb····
-····sQQQQQQQQQQQQQSb··sQS···············(·p·p······s·········)QQQQQQQQQQQQQb····
-····sQQQQQQQQQQQQQQ·)QQb····s·········S·)QQQQQsp····)p·······sQQQQQQQQQQQQQb····
-····QQQQQQQQQQQQQQQsQQb··sQQQQQQsep···SQQQSD····)p···)p·····)QQQQQQQQQQQQQQb····
-····QQQQQQQQQQQQQS)QQQbsSGSb·(bSQQb····SO)sb·p·)Q·S···Q··S··)QQQQQQQQQQQQQQb····
-····SQQQQQQQQQQQC···QQQQQSCpssQSPbS·······bbbbbb··e···Q··Q)s)QQQQQQQQQQQQQQb····
-····QQQQQQQQQQQQb··sQQQQQSbbb····S············P·D·····)p·SQQsQQQQQQQQQQQQQQb····
-····QQQQQQQQQQQQb·sQQQQbGpss····)QssQQQ·)··············Q·QQQQQQQQQQQQQQQQQQ·····
-····QQQQQQQQQQQQQQQQQQ··········)QQQQSQQe·o············)·QQQQQQQQQQQQQQQQQQ·····
-····QQQQQQQQQQQQQQQQQQsssQ·····)dSPb···)···u············p)QQQQQQQQQQQQQQQQQ·····
-····QQQQQQQQQQQQQQQQQQQQQQQ···)·····ppp·················Q·)QQQQQQQQQQQQQQQQ·····
-····QQQQQQQQQQQQQQQQQQQQQQQ··(b·sSb······CPe············)·Q··b)QQQQQQQQQQQQ·····
-····QQQQQQQQQQQQQQQQQQQQQQQ··C)S)QQQQSSSSep·············sS····dQQQQQQQQQQQQ·····
-····SQQQQQQQQQQQQQQQQQQQQQQ·S·)QQQS············e········Qb····QQQQQQQQQQQQQp····
-····QQQQQQQQQQQQQQQSbGQQQQQQp(b························QQssssQQQQQQQQQQQQQQb····
-····QQQQQQQQQQQQQQQQQsQQQQQQQQsssssQQQQQQQQsQQQQQQsssQQQQQQQQQQQQQQQQQQQQQQb····
-····QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb····
-····QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQDSQSQQQQQQQQQQQQQQQQb····
-····SQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ·sQQSQQQQQQQQQQQQQQQb····
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQO·QQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQOsQQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQQSGQQQQQQQQQQQQQQQQQQQQQQQQSSb·)QQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQS···(bQQQQQQQQQQQQQQQQSPb······)QQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQ········D·DbbQQQQQQQQ··········)QQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQ··········)QQQQQp)QQQQQ········)QQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQQ·········S··PSQQQ)QQQSSbp······)QQQQQQQQQQQQQQQQQQQQ····
-····)QQQQQQQQQQQQQQQQQQb·······sb····sQS)QPb·····Q·····)QQQQQQQQQQQQQQQQQQS·····
-····)QQQQQQQQQQQQQQQQQQb······S····sQQS·SQb·······Q····)QQQQQQQQQQQQQQQQQS······
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQb·······
-····)QQQQQQQQQQQQQQQQQQep·ss·)SQQSSSSQQb·ep·S·)e·)b·)Q·QQQQQQQQQQQQQQQQb········
-····)QQQQQQQQQQQQQQQQQQQb·sQ·(Q·S·so·SQb·sb·S·)Q·)DQ·SdQQQQQQQQQQQQQQQb·········
-····)QQQQQQQQQQQQQQQQQQQb·sQ·)b·S·sSSQQb·Pb·S·PP·sqQo·)QQQQQQQQQQQQQSb··········
-····)QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ········
-    
-```
+
                                                                     
